@@ -21,23 +21,21 @@ using namespace std;
 /*
  * 
  */
-class makeIPAddress{
-public:
 
-   IPAddress(string source, string dest) 
+   void IPAddress(string source, string dest) 
    {
-       regex format("((1[1-255]{1})).((1[1-255]{1})).(((1[1-255]{1})).((1[1-99]{1}))");
+       regex format("((1[1-9]{2})|(2[1-4][1-9])|(25[1-5])).((1[1-9]{2})|(2[1-4][0-9])|(25[1-5])).((1[1-9]{2})|(2[1-4][1-9])|(25[1-5])).((25[1-5])|(2[1-4][1-9])|[1-9]{2}|[1-9])");
        if(regex_match(source, format) && regex_match(dest, format))
        {
            cout<< "this is a valid IP Address" << endl;
        }
        else
        {
-           throw string "Ripperoini";
+           cout<< "Invalid IP Header - Source IP Address is invalid."<< endl;
        }
    }
    
-};
+
 int main(int argc, char** argv) {
 
     string a1 = "212.112.212.11";
@@ -45,15 +43,9 @@ int main(int argc, char** argv) {
     
     string b1 = "212.112.212.333";
     string b2 = "212.112.212.33";
-    try
-    {
-        makeIPAddress(a1,a2);
-        makeIPAddress(b1,b2);
-        
-    }
-    catch(string &exc){
-        cout << "Invalid IP Header - Source IP Address is invalid."<<endl;
-    }
+    
+    IPAddress(a1,a2);
+    IPAddress(b1,b2);
     return 0;
 }
 
