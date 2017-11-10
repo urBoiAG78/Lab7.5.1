@@ -21,10 +21,9 @@ using namespace std;
 /*
  * 
  */
-class makeIPAddress
-{
+class makeIPAddress{
 public:
-{
+
    IPAddress(string source, string dest) 
    {
        regex format("((1[1-255]{1})).((1[1-255]{1})).(((1[1-255]{1})).((1[1-99]{1}))");
@@ -37,7 +36,7 @@ public:
            throw string "Ripperoini";
        }
    }
-}    
+   
 };
 int main(int argc, char** argv) {
 
@@ -48,8 +47,8 @@ int main(int argc, char** argv) {
     string b2 = "212.112.212.33";
     try
     {
-        IPAddress(a1,a2);
-        IPAddress(b1,b2);
+        makeIPAddress(a1,a2);
+        makeIPAddress(b1,b2);
         
     }
     catch(string &exc){
