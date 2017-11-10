@@ -27,7 +27,7 @@ public:
 {
    IPAddress(string source, string dest) 
    {
-       regex format("((1[1-9]{2})|(2[1-4][1-9])|(25[1-5])).((1[1-9]{2})|(2[1-4][0-9])|(25[1-5])).((1[1-9]{2})|(2[1-4][1-9])|(25[1-5])).((25[1-5])|(2[1-4][1-9])|[1-9]{2}|[1-9])");
+       regex format("((1[1-255]{1})).((1[1-255]{1})).(((1[1-255]{1})).((1[1-99]{1}))");
        if(regex_match(source, format) && regex_match(dest, format))
        {
            cout<< "this is a valid IP Address" << endl;
